@@ -1,71 +1,58 @@
-int opcion = 1;
-while (opcion != 0)
+
+double resultado;
+float numero;
+string entrada;
+Console.Write("Ingrese un numero:");
+entrada = Console.ReadLine();
+if (float.TryParse(entrada, out numero))
 {
-    Console.Write("\nIngrese la operacion que quiere realizar:");
-    Console.Write("1)Sumar");
-    Console.Write("2)Restar");
-    Console.Write("3)Multiplicar");
-    Console.Write("4)Dividir");
-    string entrada = Console.ReadLine();
-    if (int.TryParse(entrada, out opcion))
+    int numero_entero = (int)numero;
+    resultado = Math.Abs(numero);
+    Console.WriteLine("El valor absoluto del numero ingresado es: " + resultado);
+    resultado = numero * numero;
+    Console.WriteLine("El cuadrado del numero ingresado es: " + resultado);
+    resultado = Math.Sqrt(numero);
+    Console.WriteLine("La raiz del numero ingresado es: " + resultado);
+    resultado = Math.Sin(numero);
+    Console.WriteLine("El seno del numero ingresado es: " + resultado);
+    resultado = Math.Cos(numero);
+    Console.WriteLine("El coseno del numero ingresado es: " + resultado);
+    Console.WriteLine("La parte entera del numero ingresado es: " + numero_entero);
+}
+else
+{
+    Console.Write("Numero invalido.");
+}
+Console.WriteLine("Ingrese dos numeros:");
+Console.WriteLine("Ingrese el primer numero:");
+int numero_1;
+entrada = Console.ReadLine();
+if (int.TryParse(entrada, out numero_1))
+{
+    Console.WriteLine("Ingrese el segundo numero:");
+    entrada = Console.ReadLine();
+    int numero_2;
+    if (int.TryParse(entrada, out numero_2))
     {
-        int resultado;
-        int numero_1;
-        int numero_2;
-        string entrada_1;
-        string entrada_2;
-        Console.Write("Ingrese el primer numero:");
-        entrada_1 = Console.ReadLine();
-        Console.Write("Ingrese el segundo numero:");
-        entrada_2 = Console.ReadLine();
-        if (int.TryParse(entrada_1, out numero_1) && int.TryParse(entrada_2, out numero_2))
+        if (numero_1 > numero_2)
         {
-            switch (opcion)
-            {
-                case 1:
-                    resultado = numero_1 + numero_2;
-                    Console.WriteLine("La suma de los numeros ingresados es: " + resultado);
-                    break;
-                case 2:
-                    resultado = numero_1 - numero_2;
-                    Console.WriteLine("La resta de los numeros ingresados es: " + resultado);
-                    break;
-                case 3:
-                    resultado = numero_1 * numero_2;
-                    Console.WriteLine("La multiplicacion de los numeros ingresados es: " + resultado);
-                    break;
-                case 4:
-                    if (numero_2 == 0)
-                    {
-                        Console.Write("Numeros invalido. No se puede realizar una division con 0.");
-                    }
-                    else
-                    {
-                        resultado = numero_1 / numero_2;
-                        Console.WriteLine("La division de los numeros ingresados es: " + resultado);
-                    }
-                    break;
-                default:
-                    Console.Write("Opcion ingresada invalida.");
-                    break;
-            }
+            Console.WriteLine("El numero 1: " + numero_1 + "es el maximo");
+            Console.WriteLine("El numero 1: " + numero_2 + "es el minimo");
         }
         else
         {
-            Console.Write("Los numeros ingresados son invalidos. Ingreselos nuevamente.");
+            Console.WriteLine("El numero 1: " + numero_2 + "es el maximo");
+            Console.WriteLine("El numero 1: " + numero_1 + "es el minimo");
         }
     }
     else
     {
-        Console.Write("Error: Elija entre la opcion 1 a 4.");
+        Console.Write("Numero invalido.");
     }
-    Console.Write("Quiere realizar otra operacion:");
-    Console.Write("1)Si");
-    Console.Write("2)No");
-    entrada = Console.ReadLine();
-    if (int.TryParse(entrada, out opcion) && opcion == 2)
-    {
-        opcion = 0;
-    }
-    Console.WriteLine("----------------------------------------");
 }
+else
+{
+    Console.Write("Numero invalido.");
+}
+
+
